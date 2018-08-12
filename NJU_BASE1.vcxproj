@@ -19,8 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="NJU_动态规划_图论1.cpp" />
-    <ClCompile Include="NJU_动态规划_图论1key.cpp" />
+    <ClCompile Include="NJU_图论2_最小生成树.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
