@@ -15,6 +15,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="NJU_动态规划_图论1key.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="NJU_动态规划_图论1.cpp">
       <Filter>源文件</Filter>
     </ClCompile>

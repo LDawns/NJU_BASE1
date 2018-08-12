@@ -5,6 +5,7 @@
 //若有奇数个点构成的环，一定不行
 //正与正不相邻，负与负不相邻
 //N字为基本构造，二字为判否标准
+//等等一周后再回来重写吧？
 #include <iostream>
 #include <string>
 #include <vector>
