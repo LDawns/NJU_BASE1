@@ -20,6 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NJU_图论2_最小生成树.cpp" />
+    <ClCompile Include="NJU_图论3_次短路.cpp" />
+    <ClCompile Include="NJU_图论3_次短路key.cpp" />
+    <ClCompile Include="练习\tree.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

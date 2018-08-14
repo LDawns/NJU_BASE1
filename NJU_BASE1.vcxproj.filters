@@ -15,7 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="NJU_图论3_次短路.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="练习\tree.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="NJU_图论2_最小生成树.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NJU_图论3_次短路key.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
