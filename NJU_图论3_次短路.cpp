@@ -1,9 +1,9 @@
 //终于自己实现了一波图论基础，感觉不差。
 #include <iostream>
 #include <queue>
-#include <functional>//因为用了greater<int>()
+#include <functional>//因为用了greater<int>
 using namespace std;
-const int maxn = 50;
+const int maxn = 100000000;
 const int maxnn = 10000;
 const int inf = 1000000000;
 int N, M, S, E;
@@ -12,7 +12,7 @@ int edgecount = 0;
 int visitcount[maxnn];
 int d[maxnn];
 int sd[maxnn]; 
-int sdcount[maxnn];
+int sdcount[maxnn], dcount[maxnn];
 typedef pair<int, int> pii;
 struct EDGE
 {
@@ -34,7 +34,7 @@ void addEdge(int u, int v, int w)
 }
 bool spfa(int s)
 {
-	priority_queue<pii, greater<int>> q;
+	priority_queue< pii, vector<pii>, greater<pii> > q;//骚操作。虽然我不懂原理就是了orz
 	bool done[maxnn];
 	for (int i = 0; i < N; i++)
 	{
@@ -51,13 +51,15 @@ bool spfa(int s)
 		done[i] = false;
 		visitcount[i] = 0;
 		sdcount[i] = 0;
+		dcount[i] = 0;
 	}	
-	//pii(s, d[s]);//话说这是不是多余的。。
-	q.push((d[s], s));
+	q.push(pii(d[s],s));
 	while (!q.empty())
 	{
+		pii pu;
 		int dist, u;
-		(dist, u) = q.top();//这样也行orz，C++的处理真是棒极了
+		pu = q.top();//这样也行orz，C++的处理真是棒极了
+		dist = pu.first; u = pu.second;
 		q.pop();
 		done[u] = false;
 		if (++ visitcount[u] > N)return false;
@@ -67,23 +69,32 @@ bool spfa(int s)
 			int w = edge[e].w;
 			if (w + dist <= d[v])//考虑要不要加个等于号，让下面的的的确确是次短路？
 			{
+				if (w + dist != d[v])
+				{
+					sd[v] = d[v] - w - dist;
+					sdcount[v] = dcount[v];
+					dcount[v] = 1;
+				}
+				else  dcount[v]++;
 				d[v] = w + dist;
 			}
 			else if( w + dist - d[v] < sd[v] )
 			{
 				sd[v] = w + dist -d[v];
+				sdcount[v] = 1;
 			}
-			else if (w + dist == sd[v])
+			else if (w + dist - d[v] == sd[v])
 			{
 				sdcount[v]++;
 			}
 			if (!done[v])
 			{
 				done[v] = true;
-				q.push((d[v], v));
+				q.push(pii(d[v], v));
 			}
 		}
 	}
+	return true;
 }
 int main()
 {
