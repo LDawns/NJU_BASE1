@@ -60,7 +60,7 @@ int KM()
 	// 尝试为每一个女生解决归宿问题
 	for (int i = 0; i < N; ++i) {
 
-		fill(slack, slack + N, INF);    // 因为要取最小值 初始化为无穷大
+		fill(slack, slack + N, INF);    // 因为要取最小值 初始化为无穷大	//这个函数实现= =
 
 		while (1) {
 			// 为每个女生解决归宿问题的方法是 ：如果找不到就降低期望值，直到找到为止
@@ -100,11 +100,9 @@ int KM()
 int main()
 {
 	while (~scanf("%d", &N)) {
-
 		for (int i = 0; i < N; ++i)
 			for (int j = 0; j < N; ++j)
 				scanf("%d", &love[i][j]);
-
 		printf("%d\n", KM());
 	}
 	return 0;
