@@ -107,26 +107,28 @@ int main()
 	memset(path, '\0', sizeof(path));
 	build();
 	string g;
-	getline(cin, g);
-	int pz[9]; char c;
-	strm << g;	
-	for (int i = 0; i < 9; i++)
+	while (getline(cin, g))
 	{
-		strm >> c;
-		if (c == 'x')
-			c = '9';
-		pz[i] = c - '0';
+		int pz[9]; char c;
+		strm << g;
+		for (int i = 0; i < 9; i++)
+		{
+			strm >> c;
+			if (c == 'x')
+				c = '9';
+			pz[i] = c - '0';
+		}
+		int target = kt(pz);
+		char result[50] = {};
+		int slen = strlen(path[target]) - 1;
+		for (int i = slen; i >= 0; i--)
+		{
+			result[slen - i] = dir3[path[target][i]];
+		}
+		if (!inq[target])
+			printf("unsolvable\n");
+		else
+			cout << result << '\n';
 	}
-	int target = kt(pz);
-	char result[50] = {};
-	int slen = strlen(path[target])-1;
-	for (int i =slen ; i >= 0; i--)
-	{
-		result[slen - i] = dir3[path[target][i]];
-	}
-	if (!inq[target])
-		printf("unsolvable\n");
-	else
-		cout << result << '\n';
 	return 0;
 }

@@ -69,7 +69,7 @@ int main()
 		cout << top << endl;
 		for (int i = 0; i < top; i++)
 		{
-			cout << "C " << a[i]+1 << " " << b[i]+1 << endl;		//还有这里，槽，只能是C？//或者有哪里有问题，算了，过。
+			cout << "C " << a[i]+1 << " " << b[i]+1 << endl;		
 		}
 	}
 	return 0;

@@ -99,6 +99,12 @@ int main()
 		}
 		int ans = cantor(q);
 		// printf("%d",ans);
+		int falsecount = 0;
+		for (int i = 1; i <= 362880; i++)
+		{
+			if (!vis[i])
+				falsecount++;
+		}
 		if (!vis[ans])
 			printf("unsolvable\n");
 		else
